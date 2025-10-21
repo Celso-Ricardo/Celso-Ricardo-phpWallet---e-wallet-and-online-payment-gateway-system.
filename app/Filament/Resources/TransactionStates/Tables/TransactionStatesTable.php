@@ -15,6 +15,8 @@ class TransactionStatesTable
     {
         return $table
             ->columns([
+                TextColumn::make('id')
+                    ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('created_at')

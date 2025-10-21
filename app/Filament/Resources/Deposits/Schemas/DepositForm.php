@@ -4,6 +4,10 @@ namespace App\Filament\Resources\Deposits\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Placeholder;
+
 use Filament\Schemas\Schema;
 
 class DepositForm
@@ -12,49 +16,16 @@ class DepositForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('transaction_state_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('deposit_method_id')
-                    ->numeric()
-                    ->default(null),
-                TextInput::make('gross')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('fee')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('net')
-                    ->required()
-                    ->numeric(),
-                Textarea::make('transaction_receipt')
-                    ->default(null)
-                    ->columnSpanFull(),
-                Textarea::make('json_data')
-                    ->default(null)
-                    ->columnSpanFull(),
-                TextInput::make('currency_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('currency_symbol')
-                    ->default(null),
-                TextInput::make('wallet_id')
-                    ->required()
-                    ->numeric(),
-                Textarea::make('message')
-                    ->default(null)
-                    ->columnSpanFull(),
-                TextInput::make('transfer_method_id')
-                    ->numeric()
-                    ->default(null),
-                TextInput::make('unique_transaction_id')
-                    ->default(null),
-                TextInput::make('date_eposh')
-                    ->required()
-                    ->default('CURRENT_TIMESTAMP'),
+                Group::make()->schema([
+                    TextInput::make('gross')->label('Amount to deposit'),
+                    TextInput::make('id')->label('Deposit Id')->readOnly()->disabled(),
+                ]),
+                Section::make('Deposit Transactin Receipt')->schema([
+                    Placeholder::make('Image')
+                        ->content(function ($record): HtmlString {
+                            return new HtmlString("<img src= '" . Storage::url($record->transaction_receipt) . "')>");
+                    })
+                ])->columnSpan(1)
             ]);
     }
 }

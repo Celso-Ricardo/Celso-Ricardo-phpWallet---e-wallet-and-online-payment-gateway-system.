@@ -8,6 +8,8 @@ class TransactionState extends Model
 {
     //
 
+    public $fillable = ['name', 'json_data', 'created_at', 'updated_at'];
+
     public function getColor():string{
         if($this->id == 1){
             return 'success';

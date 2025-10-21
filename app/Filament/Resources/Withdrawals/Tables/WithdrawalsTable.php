@@ -18,28 +18,25 @@ class WithdrawalsTable
                 TextColumn::make('user_id')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('transaction_state_id')
+                TextColumn::make('user.name')
                     ->numeric()
+                    ->sortable(),
+                TextColumn::make('transactionstate.name')
                     ->sortable(),
                 TextColumn::make('gross')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('fee')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('net')
-                    ->numeric()
                     ->sortable(),
-                TextColumn::make('currency_symbol')
+                TextColumn::make('currency.name')
                     ->searchable(),
                 TextColumn::make('wallet_id')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('send_to_platform_name')
                     ->searchable(),
-                TextColumn::make('currency_id')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -48,8 +45,7 @@ class WithdrawalsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('transfer_method_id')
-                    ->numeric()
+                TextColumn::make('transfermethod.name')
                     ->sortable(),
             ])
             ->filters([

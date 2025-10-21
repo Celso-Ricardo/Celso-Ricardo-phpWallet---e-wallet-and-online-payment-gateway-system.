@@ -32,8 +32,8 @@ class TransferMethodInfolist
                 IconEntry::make('is_active')
                     ->boolean(),
                 TextEntry::make('deleted_at')
-                    ->dateTime()
-                    ->visible(fn (TransferMethod $record): bool => $record->trashed()),
+                    ->dateTime(),
+                    //->visible(fn (TransferMethod $record): bool => $record->trashed()),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

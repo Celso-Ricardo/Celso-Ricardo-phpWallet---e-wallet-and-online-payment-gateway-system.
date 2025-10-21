@@ -70,7 +70,8 @@ class Transaction extends Model
     }
 
     public function getFeeAttribute($value){
-        if ($this->fee > 0) {
+        //if ($this->fee > 0) {
+        if($value > 0) {
             if ($this->Currencie()->first()->is_crypto) {
                  return  '- ' . $this->trimzero($value) .' '. $this->currency_symbol;
             }

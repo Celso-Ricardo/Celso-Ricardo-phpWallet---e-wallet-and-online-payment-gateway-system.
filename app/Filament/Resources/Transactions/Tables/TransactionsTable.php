@@ -14,59 +14,58 @@ class TransactionsTable
     public static function configure(Table $table): Table
     {
         return $table
+            //->modifyQueryUsing(fn (Builder $query) => $query->orderby('created_at', 'desc'))
             ->columns([
                 TextColumn::make('user_id')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('user.name')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('activity_title')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('request_id')
                     ->numeric()
-                    ->sortable(),
-                TextColumn::make('transactionable_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('transactionable_type')
-                    ->searchable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('entity_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('entity_name')
-                    ->searchable(),
-                TextColumn::make('transaction_state_id')
-                    ->numeric()
-                    ->sortable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
+                TextColumn::make('transactionstate.name')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('currency')
-                    ->searchable(),
-                TextColumn::make('activity_title')
-                    ->searchable(),
-                TextColumn::make('money_flow')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('gross')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('fee')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('net')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('balance')
                     ->numeric()
-                    ->sortable(),
-                TextColumn::make('currency_symbol')
-                    ->searchable(),
-                TextColumn::make('thumb')
-                    ->searchable(),
-                TextColumn::make('currency_id')
-                    ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
                 //
@@ -82,3 +81,4 @@ class TransactionsTable
             ]);
     }
 }
+
