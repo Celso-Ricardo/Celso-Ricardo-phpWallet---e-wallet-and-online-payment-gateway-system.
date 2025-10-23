@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\CurrencyExchangeRates\Tables;
+namespace App\Filament\Resources\Exchanges\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,19 +9,28 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class CurrencyExchangeRatesTable
+class ExchangesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
+                TextColumn::make('user_id')
+                    ->numeric()
+                    ->sortable(),
                 TextColumn::make('first_currency_id')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('second_currency_id')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('exchanges_to_second_currency_value')
+                TextColumn::make('gross')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('fee')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('net')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')

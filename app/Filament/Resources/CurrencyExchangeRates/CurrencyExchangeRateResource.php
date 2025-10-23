@@ -2,12 +2,12 @@
 
 namespace App\Filament\Resources\CurrencyExchangeRates;
 
-use App\Filament\Resources\CurrencyExchangeRates\Pages\CreateCurrencyExchangeRates;
-use App\Filament\Resources\CurrencyExchangeRates\Pages\EditCurrencyExchangeRates;
+use App\Filament\Resources\CurrencyExchangeRates\Pages\CreateCurrencyExchangeRate;
+use App\Filament\Resources\CurrencyExchangeRates\Pages\EditCurrencyExchangeRate;
 use App\Filament\Resources\CurrencyExchangeRates\Pages\ListCurrencyExchangeRates;
-use App\Filament\Resources\CurrencyExchangeRates\Pages\ViewCurrencyExchangeRates;
-use App\Filament\Resources\CurrencyExchangeRates\Schemas\CurrencyExchangeRatesForm;
-use App\Filament\Resources\CurrencyExchangeRates\Schemas\CurrencyExchangeRatesInfolist;
+use App\Filament\Resources\CurrencyExchangeRates\Pages\ViewCurrencyExchangeRate;
+use App\Filament\Resources\CurrencyExchangeRates\Schemas\CurrencyExchangeRateForm;
+use App\Filament\Resources\CurrencyExchangeRates\Schemas\CurrencyExchangeRateInfolist;
 use App\Filament\Resources\CurrencyExchangeRates\Tables\CurrencyExchangeRatesTable;
 use App\Models\CurrencyExchangeRate;
 use BackedEnum;
@@ -16,22 +16,22 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class CurrencyExchangeRatesResource extends Resource
+class CurrencyExchangeRateResource extends Resource
 {
     protected static ?string $model = CurrencyExchangeRate::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'ExchangeRates';
+    protected static ?string $recordTitleAttribute = 'Currency Exchange Rates';
 
     public static function form(Schema $schema): Schema
     {
-        return CurrencyExchangeRatesForm::configure($schema);
+        return CurrencyExchangeRateForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
     {
-        return CurrencyExchangeRatesInfolist::configure($schema);
+        return CurrencyExchangeRateInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
@@ -50,9 +50,9 @@ class CurrencyExchangeRatesResource extends Resource
     {
         return [
             'index' => ListCurrencyExchangeRates::route('/'),
-            'create' => CreateCurrencyExchangeRates::route('/create'),
-            'view' => ViewCurrencyExchangeRates::route('/{record}'),
-            'edit' => EditCurrencyExchangeRates::route('/{record}/edit'),
+            'create' => CreateCurrencyExchangeRate::route('/create'),
+            'view' => ViewCurrencyExchangeRate::route('/{record}'),
+            'edit' => EditCurrencyExchangeRate::route('/{record}/edit'),
         ];
     }
 }

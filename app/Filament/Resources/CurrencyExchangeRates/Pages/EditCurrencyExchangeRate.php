@@ -3,17 +3,19 @@
 namespace App\Filament\Resources\CurrencyExchangeRates\Pages;
 
 use App\Filament\Resources\CurrencyExchangeRates\CurrencyExchangeRateResource;
-use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
+use Filament\Resources\Pages\EditRecord;
 
-class ListCurrencyExchangeRates extends ListRecords
+class EditCurrencyExchangeRate extends EditRecord
 {
     protected static string $resource = CurrencyExchangeRateResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            ViewAction::make(),
+            DeleteAction::make(),
         ];
     }
 }

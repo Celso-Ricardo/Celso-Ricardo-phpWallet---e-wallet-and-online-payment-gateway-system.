@@ -1,28 +1,31 @@
 <?php
 
-namespace App\Filament\Resources\Currencies\Schemas;
+namespace App\Filament\Resources\Exchanges\Schemas;
 
-use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class CurrencyInfolist
+class ExchangeInfolist
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextEntry::make('name')
+                TextEntry::make('user_id')
+                    ->numeric(),
+                TextEntry::make('first_currency_id')
+                    ->numeric(),
+                TextEntry::make('second_currency_id')
+                    ->numeric(),
+                TextEntry::make('gross')
+                    ->numeric()
                     ->placeholder('-'),
-                TextEntry::make('symbol')
+                TextEntry::make('fee')
+                    ->numeric()
                     ->placeholder('-'),
-                TextEntry::make('code')
+                TextEntry::make('net')
+                    ->numeric()
                     ->placeholder('-'),
-                IconEntry::make('is_crypto')
-                    ->boolean(),
-                TextEntry::make('thumb')
-                    ->placeholder('-')
-                    ->columnSpanFull(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

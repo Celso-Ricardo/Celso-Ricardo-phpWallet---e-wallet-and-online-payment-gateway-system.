@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\CurrencyExchangeRates\Pages;
 
-use App\Filament\Resources\CurrencyExchangeRates\CurrencyExchangeRatesResource;
+use App\Filament\Resources\CurrencyExchangeRates\CurrencyExchangeRateResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewCurrencyExchangeRates extends ViewRecord
+class ViewCurrencyExchangeRate extends ViewRecord
 {
-    protected static string $resource = CurrencyExchangeRatesResource::class;
+    protected static string $resource = CurrencyExchangeRateResource::class;
 
     protected function getHeaderActions(): array
     {

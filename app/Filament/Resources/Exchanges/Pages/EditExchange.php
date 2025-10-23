@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\CurrencyExchangeRates\Pages;
+namespace App\Filament\Resources\Exchanges\Pages;
 
-use App\Filament\Resources\CurrencyExchangeRates\CurrencyExchangeRatesResource;
+use App\Filament\Resources\Exchanges\ExchangeResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditCurrencyExchangeRates extends EditRecord
+class EditExchange extends EditRecord
 {
-    protected static string $resource = CurrencyExchangeRatesResource::class;
+    protected static string $resource = ExchangeResource::class;
 
     protected function getHeaderActions(): array
     {
